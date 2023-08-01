@@ -52,52 +52,52 @@ lazy val halogenTelemetryWriter = (project in file("halogen-telemetry-writer"))
     // TODO Check this - unsure this will work
     assembly / mainClass := Some("hypervolt.Job"),
   )
-//
-//def utilProjectName(suffix: String): String = {
-//  s"hv-flink-util-$suffix"
-//}
-//
-//lazy val core = (project in file("flink-util-projects/hv-flink-util"))
-//  .configs(IntegrationTest)
-//  .settings(
-//    name := "hv-flink-util",
-//    Defaults.itSettings,
-//    libraryDependencies ++= theInternet,
-//    commonSettings,
-//  )
-//  .dependsOn(conf, testKit % "it,test")
-//
-//lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit"))
-//  .settings(
-//    name := utilProjectName("testkit"),
-//    commonSettings,
-//    libraryDependencies ++= Seq(
-//      Flink.scala,
-//      Flink.streamingScala,
-//      Flink.metricsDropwizard,
-//      Flink.testUtils,
-//
-//      Misc.scanamo,
-//      Misc.caffeine,
-//      Misc.bigquery,
-//
-//      AWS.s3,
-//
-//      TestKits.dockerScalatest,
-//      TestKits.dockerSpotify,
-//      TestKits.scanamoTestkit,
-//      TestKits.scalaTest,
-//    ),
-//  )
-//  .dependsOn(conf)
-//
-//lazy val conf = (project in file("flink-util-projects/hv-flink-util-conf"))
-//  .settings(
-//    name := utilProjectName("conf"),
-//    commonSettings,
-//    libraryDependencies += Flink.clients
-//  )
-//
+
+def utilProjectName(suffix: String): String = {
+  s"hv-flink-util-$suffix"
+}
+
+lazy val core = (project in file("flink-util-projects/hv-flink-util"))
+  .configs(IntegrationTest)
+  .settings(
+    name := "hv-flink-util",
+    Defaults.itSettings,
+    libraryDependencies ++= theInternet,
+    commonSettings,
+  )
+  .dependsOn(conf, testKit % "it,test")
+
+lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit"))
+  .settings(
+    name := utilProjectName("testkit"),
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Flink.scala,
+      Flink.streamingScala,
+      Flink.metricsDropwizard,
+      Flink.testUtils,
+
+      Misc.scanamo,
+      Misc.caffeine,
+      Misc.bigquery,
+
+      AWS.s3,
+
+      TestKits.dockerScalatest,
+      TestKits.dockerSpotify,
+      TestKits.scanamoTestkit,
+      TestKits.scalaTest,
+    ),
+  )
+  .dependsOn(conf)
+
+lazy val conf = (project in file("flink-util-projects/hv-flink-util-conf"))
+  .settings(
+    name := utilProjectName("conf"),
+    commonSettings,
+    libraryDependencies += Flink.clients
+  )
+
 lazy val dynamoUtil = (project in file("hv-dynamo-util"))
   .settings(
     name := "hv-dynamo-util",
@@ -112,4 +112,4 @@ lazy val dynamoUtil = (project in file("hv-dynamo-util"))
       TestKits.scalaTest % Test
     )
   )
-//  .dependsOn(core, testKit)
+  .dependsOn(core, testKit)
