@@ -59,8 +59,8 @@ lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit")
 //      Flink.metricsDropwizard,
 //      Flink.testUtils,
 
-      Misc.scanamo,
-      Misc.caffeine,
+//      Misc.scanamo,
+//      Misc.caffeine,
       Misc.bigquery,
 
       AWS.s3,
