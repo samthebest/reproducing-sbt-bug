@@ -42,6 +42,7 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
   .configs(IntegrationTest)
   .settings(
     name := "hv-flink-util",
+
     libraryDependencies ++= theInternet,
     commonSettings,
   )
@@ -51,7 +52,5 @@ lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit")
   .settings(
     name := utilProjectName("testkit"),
     commonSettings,
-    libraryDependencies ++= Seq(
-      Misc.bigquery
-    ),
+    libraryDependencies ++= Seq(Misc.bigquery),
   )
