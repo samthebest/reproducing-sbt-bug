@@ -64,7 +64,8 @@ object Dependencies {
   }
 
   @deprecated("Don't provide all deps to all projects - figure out which ones need which")
-  val theInternet = Flink.all ++ AWS.all ++ Seq(
+  val theInternet = //Flink.all ++ AWS.all ++
+    Seq(
     TypeLevel.catsCore,
     TypeLevel.squants,
 
