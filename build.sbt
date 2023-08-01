@@ -2,12 +2,10 @@ import sbt._
 import Dependencies._
 
 
-//object CustomMergeStrat {
-  lazy val mergeStrat =
-    assembly / assemblyMergeStrategy := {
-      case _ => MergeStrategy.first
-    }
-//}
+//  lazy val mergeStrat =
+//    assembly / assemblyMergeStrategy := {
+//      case _ => MergeStrategy.first
+//    }
 
 
 lazy val commonSettings = Seq(
