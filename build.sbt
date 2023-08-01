@@ -46,8 +46,7 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
     libraryDependencies ++= theInternet,
     commonSettings,
   )
-//  .dependsOn(conf, testKit % "it,test")
-  .dependsOn(testKit % "it,test")
+  .dependsOn(testKit)
 
 lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit"))
   .settings(
