@@ -53,21 +53,21 @@ lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit")
   .settings(
     name := utilProjectName("testkit"),
     commonSettings,
-//    libraryDependencies ++= Seq(
+    libraryDependencies ++= Seq(
 //      Flink.scala,
 //      Flink.streamingScala,
 //      Flink.metricsDropwizard,
 //      Flink.testUtils,
-//
+
 //      Misc.scanamo,
 //      Misc.caffeine,
 //      Misc.bigquery,
 //
 //      AWS.s3,
-//
-//      TestKits.dockerScalatest,
-//      TestKits.dockerSpotify,
-//      TestKits.scanamoTestkit,
-//      TestKits.scalaTest,
-//    ),
+
+      TestKits.dockerScalatest,
+      TestKits.dockerSpotify,
+      TestKits.scanamoTestkit,
+      TestKits.scalaTest,
+    ),
   )
