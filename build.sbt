@@ -24,7 +24,7 @@ lazy val root = (project in file("."))
 //    core,
 //    testKit,
 //    conf,
-    common,
+//    common,
 //    dynamoUtil,
     halogenTelemetryWriter,
   )
@@ -34,12 +34,12 @@ lazy val root = (project in file("."))
     publish / skip := true,
   )
 
-lazy val common = (project in file("common"))
-  .dependsOn(dynamoUtil)
-  .settings(
-    commonSettings,
-    libraryDependencies ++= theInternet,
-  )
+//lazy val common = (project in file("common"))
+////  .dependsOn(dynamoUtil)
+//  .settings(
+//    commonSettings,
+//    libraryDependencies ++= theInternet,
+//  )
 
 
 val flinkVersion = "1.13.2"
@@ -66,30 +66,30 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
     commonSettings,
   )
 //  .dependsOn(conf, testKit % "it,test")
-//  .dependsOn(testKit % "it,test")
+  .dependsOn(testKit % "it,test")
 
-//lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit"))
-//  .settings(
-//    name := utilProjectName("testkit"),
-//    commonSettings,
-//    libraryDependencies ++= Seq(
-//      Flink.scala,
-//      Flink.streamingScala,
-//      Flink.metricsDropwizard,
-//      Flink.testUtils,
-//
-//      Misc.scanamo,
-//      Misc.caffeine,
-//      Misc.bigquery,
-//
-//      AWS.s3,
-//
-//      TestKits.dockerScalatest,
-//      TestKits.dockerSpotify,
-//      TestKits.scanamoTestkit,
-//      TestKits.scalaTest,
-//    ),
-//  )
+lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit"))
+  .settings(
+    name := utilProjectName("testkit"),
+    commonSettings,
+    libraryDependencies ++= Seq(
+      Flink.scala,
+      Flink.streamingScala,
+      Flink.metricsDropwizard,
+      Flink.testUtils,
+
+      Misc.scanamo,
+      Misc.caffeine,
+      Misc.bigquery,
+
+      AWS.s3,
+
+      TestKits.dockerScalatest,
+      TestKits.dockerSpotify,
+      TestKits.scanamoTestkit,
+      TestKits.scalaTest,
+    ),
+  )
 ////  .dependsOn(conf)
 
 //lazy val conf = (project in file("flink-util-projects/hv-flink-util-conf"))
@@ -99,19 +99,19 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
 //    libraryDependencies += Flink.clients
 //  )
 
-lazy val dynamoUtil = (project in file("hv-dynamo-util"))
-  .settings(
-    name := "hv-dynamo-util",
-    commonSettings,
-    libraryDependencies ++= Seq(
-      TypeLevel.squants,
-      TypeLevel.catsCore,
-      Misc.opencsv,
-      AWS.kinesis,
-      AWS.sqs,
-      Misc.unpickle,
-      TestKits.scalaTest % Test
-    )
-  )
-//  .dependsOn(core, testKit)
-  .dependsOn(core)
+//lazy val dynamoUtil = (project in file("hv-dynamo-util"))
+//  .settings(
+//    name := "hv-dynamo-util",
+//    commonSettings,
+//    libraryDependencies ++= Seq(
+//      TypeLevel.squants,
+//      TypeLevel.catsCore,
+//      Misc.opencsv,
+//      AWS.kinesis,
+//      AWS.sqs,
+//      Misc.unpickle,
+//      TestKits.scalaTest % Test
+//    )
+//  )
+////  .dependsOn(core, testKit)
+//  .dependsOn(core)
