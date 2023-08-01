@@ -35,7 +35,7 @@ lazy val root = (project in file("."))
   )
 
 lazy val common = (project in file("common"))
-//  .dependsOn(dynamoUtil)
+  .dependsOn(dynamoUtil)
   .settings(
     commonSettings,
     libraryDependencies ++= theInternet,
@@ -98,18 +98,18 @@ lazy val halogenTelemetryWriter = (project in file("halogen-telemetry-writer"))
 //    libraryDependencies += Flink.clients
 //  )
 //
-//lazy val dynamoUtil = (project in file("hv-dynamo-util"))
-//  .settings(
-//    name := "hv-dynamo-util",
-//    commonSettings,
-//    libraryDependencies ++= Seq(
-//      TypeLevel.squants,
-//      TypeLevel.catsCore,
-//      Misc.opencsv,
-//      AWS.kinesis,
-//      AWS.sqs,
-//      Misc.unpickle,
-//      TestKits.scalaTest % Test
-//    )
-//  )
+lazy val dynamoUtil = (project in file("hv-dynamo-util"))
+  .settings(
+    name := "hv-dynamo-util",
+    commonSettings,
+    libraryDependencies ++= Seq(
+      TypeLevel.squants,
+      TypeLevel.catsCore,
+      Misc.opencsv,
+      AWS.kinesis,
+      AWS.sqs,
+      Misc.unpickle,
+      TestKits.scalaTest % Test
+    )
+  )
 //  .dependsOn(core, testKit)
