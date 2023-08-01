@@ -66,16 +66,16 @@ object Dependencies {
   @deprecated("Don't provide all deps to all projects - figure out which ones need which")
   val theInternet = //Flink.all ++ AWS.all ++
     Seq(
-    TypeLevel.catsCore,
-    TypeLevel.squants,
-
-    TestKits.scalaTest % Test,
-
-    Misc.jaxbApi,
-    Misc.bucket4jCore,
-    Misc.unpickle,
+//    TypeLevel.catsCore,
+//    TypeLevel.squants,
+//
+//    TestKits.scalaTest % Test,
+//
+//    Misc.jaxbApi,
+//    Misc.bucket4jCore,
+//    Misc.unpickle,
     // Added for MRP
     Misc.bigquery,
-    Misc.finagleHttp,
+//    Misc.finagleHttp,
   )
 }
