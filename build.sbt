@@ -34,25 +34,6 @@ lazy val root = (project in file("."))
     publish / skip := true,
   )
 
-//lazy val common = (project in file("common"))
-////  .dependsOn(dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    libraryDependencies ++= theInternet,
-//  )
-
-
-val flinkVersion = "1.13.2"
-
-//lazy val halogenTelemetryWriter = (project in file("halogen-telemetry-writer"))
-////  .dependsOn(core, dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    libraryDependencies ++= theInternet,
-//    // TODO Check this - unsure this will work
-//    assembly / mainClass := Some("hypervolt.Job"),
-//  )
-
 def utilProjectName(suffix: String): String = {
   s"hv-flink-util-$suffix"
 }
@@ -72,46 +53,21 @@ lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit")
   .settings(
     name := utilProjectName("testkit"),
     commonSettings,
-    libraryDependencies ++= Seq(
-      Flink.scala,
-      Flink.streamingScala,
-      Flink.metricsDropwizard,
-      Flink.testUtils,
-
-      Misc.scanamo,
-      Misc.caffeine,
-      Misc.bigquery,
-
-      AWS.s3,
-
-      TestKits.dockerScalatest,
-      TestKits.dockerSpotify,
-      TestKits.scanamoTestkit,
-      TestKits.scalaTest,
-    ),
-  )
-////  .dependsOn(conf)
-
-//lazy val conf = (project in file("flink-util-projects/hv-flink-util-conf"))
-//  .settings(
-//    name := utilProjectName("conf"),
-//    commonSettings,
-//    libraryDependencies += Flink.clients
-//  )
-
-//lazy val dynamoUtil = (project in file("hv-dynamo-util"))
-//  .settings(
-//    name := "hv-dynamo-util",
-//    commonSettings,
 //    libraryDependencies ++= Seq(
-//      TypeLevel.squants,
-//      TypeLevel.catsCore,
-//      Misc.opencsv,
-//      AWS.kinesis,
-//      AWS.sqs,
-//      Misc.unpickle,
-//      TestKits.scalaTest % Test
-//    )
-//  )
-////  .dependsOn(core, testKit)
-//  .dependsOn(core)
+//      Flink.scala,
+//      Flink.streamingScala,
+//      Flink.metricsDropwizard,
+//      Flink.testUtils,
+//
+//      Misc.scanamo,
+//      Misc.caffeine,
+//      Misc.bigquery,
+//
+//      AWS.s3,
+//
+//      TestKits.dockerScalatest,
+//      TestKits.dockerSpotify,
+//      TestKits.scanamoTestkit,
+//      TestKits.scalaTest,
+//    ),
+  )
