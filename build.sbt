@@ -26,7 +26,7 @@ lazy val root = (project in file("."))
 //    conf,
 //    common,
 //    dynamoUtil,
-    halogenTelemetryWriter,
+//    halogenTelemetryWriter,
   )
   .settings(
     commonSettings,
@@ -44,14 +44,14 @@ lazy val root = (project in file("."))
 
 val flinkVersion = "1.13.2"
 
-lazy val halogenTelemetryWriter = (project in file("halogen-telemetry-writer"))
-//  .dependsOn(core, dynamoUtil)
-  .settings(
-    commonSettings,
-    libraryDependencies ++= theInternet,
-    // TODO Check this - unsure this will work
-    assembly / mainClass := Some("hypervolt.Job"),
-  )
+//lazy val halogenTelemetryWriter = (project in file("halogen-telemetry-writer"))
+////  .dependsOn(core, dynamoUtil)
+//  .settings(
+//    commonSettings,
+//    libraryDependencies ++= theInternet,
+//    // TODO Check this - unsure this will work
+//    assembly / mainClass := Some("hypervolt.Job"),
+//  )
 
 def utilProjectName(suffix: String): String = {
   s"hv-flink-util-$suffix"
