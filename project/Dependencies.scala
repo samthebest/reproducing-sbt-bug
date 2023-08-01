@@ -19,7 +19,7 @@ object Dependencies {
     val all = Seq(clients, connectorKinesis, scala, streamingScala, streamingJava, testUtils % Test, runtime,
       metricsDropwizard,
 
-      // Need this to make tests compile, Flink is super stupid for putting these under a special classifier
+      // Need this to make tests compile, Flink is super weird for putting these under a special classifier
       streamingScala classifier "tests",
       streamingJava classifier "tests"
     )

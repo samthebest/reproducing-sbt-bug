@@ -12,7 +12,7 @@ lazy val commonSettings = Seq(
     "-language:higherKinds",
     "-Ypartial-unification",
   ),
-  // This doesn't do anything
+  // This doesn't do anything?! Must use `.jvmopts`
 //  javaOptions ++= Seq(
 //    "-Xmx8G",
 //    "-Xss4M",
@@ -47,14 +47,7 @@ lazy val root = (project in file("."))
     testKit,
     conf,
     common,
-//    v2Timely,
-//    v3Timely,
-//    v2Late,
-//    v3Late,
     dynamoUtil,
-    //    dynamoUtils,
-//    deleteBucket,
-//    mrpBigqueryConsumer,
     halogenTelemetryWriter,
   )
   .settings(
@@ -72,55 +65,6 @@ lazy val common = (project in file("common"))
 
 
 val flinkVersion = "1.13.2"
-
-
-//lazy val v2Timely = (project in file("v2-timely"))
-//  .dependsOn(common, dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    jobSettings,
-//    libraryDependencies ++= theInternet,
-//  )
-//
-//lazy val v2Late = (project in file("v2-late"))
-//  .dependsOn(common, dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    jobSettings,
-//    libraryDependencies ++= theInternet,
-//  )
-
-//lazy val v3Timely = (project in file("v3-timely"))
-//  .dependsOn(common, dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    jobSettings,
-//    libraryDependencies ++= theInternet,
-//  )
-//
-//lazy val v3Late = (project in file("v3-late"))
-//  .dependsOn(common, dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    jobSettings,
-//    libraryDependencies ++= theInternet,
-//  )
-
-//lazy val deleteBucket = (project in file("delete-bucket"))
-//  .dependsOn(common, dynamoUtil)
-//  .settings(
-//    commonSettings,
-//    jobSettings,
-//    libraryDependencies ++= theInternet,
-//  )
-
-//lazy val mrpBigqueryConsumer = (project in file("mrp-bigquery-consumer"))
-//  .dependsOn(core)
-//  .settings(
-//    commonSettings,
-//    jobSettings,
-//    libraryDependencies ++= theInternet,
-//  )
 
 lazy val halogenTelemetryWriter = (project in file("halogen-telemetry-writer"))
   .dependsOn(core, dynamoUtil)
@@ -142,7 +86,7 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
     name := "hv-flink-util",
     Defaults.itSettings,
     libraryDependencies ++= theInternet,
-    scalacOptions ++= FlinkUtilProjectDefaults.scalacOptionsList,
+//    scalacOptions ++= FlinkUtilProjectDefaults.scalacOptionsList,
     commonSettings,
   )
   .dependsOn(conf, testKit % "it,test")
