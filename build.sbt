@@ -22,8 +22,10 @@ lazy val commonSettings = Seq(
   resolvers ++= Seq(
     "Apache Development Snapshot Repository" at "https://repository.apache.org/content/repositories/snapshots/",
     Resolver.mavenLocal,
-  )//,
-//  CustomMergeStrat.mergeStrat
+  ),
+  assembly / assemblyMergeStrategy := {
+    case _ => MergeStrategy.first
+  }
 )
 
 lazy val root = (project in file("."))
