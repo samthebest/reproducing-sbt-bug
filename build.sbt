@@ -65,9 +65,9 @@ lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit")
 
       AWS.s3,
 
-      TestKits.dockerScalatest,
-      TestKits.dockerSpotify,
-      TestKits.scanamoTestkit,
-      TestKits.scalaTest,
+//      TestKits.dockerScalatest,
+//      TestKits.dockerSpotify,
+//      TestKits.scanamoTestkit,
+//      TestKits.scalaTest,
     ),
   )
