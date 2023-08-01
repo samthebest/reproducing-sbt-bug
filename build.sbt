@@ -13,10 +13,8 @@ lazy val commonSettings = Seq(
   resolvers ++= Seq(
     "Apache Development Snapshot Repository" at "https://repository.apache.org/content/repositories/snapshots/",
     Resolver.mavenLocal,
-  ),
-  CustomMergeStrat.mergeStrat,
-  addCompilerPlugin("org.typelevel" % "kind-projector" % "0.13.2" cross CrossVersion.full),
-  addCompilerPlugin("org.scalamacros" % "paradise" % "2.1.1" cross CrossVersion.full),
+  )//,
+//  CustomMergeStrat.mergeStrat
 )
 
 lazy val root = (project in file("."))
@@ -39,10 +37,8 @@ def utilProjectName(suffix: String): String = {
 }
 
 lazy val core = (project in file("flink-util-projects/hv-flink-util"))
-  .configs(IntegrationTest)
   .settings(
     name := "hv-flink-util",
-
     libraryDependencies ++= theInternet,
     commonSettings,
   )
