@@ -42,7 +42,6 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
   .configs(IntegrationTest)
   .settings(
     name := "hv-flink-util",
-    Defaults.itSettings,
     libraryDependencies ++= theInternet,
     commonSettings,
   )
