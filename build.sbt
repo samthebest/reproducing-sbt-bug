@@ -1,12 +1,4 @@
 import sbt._
-import Dependencies._
-
-
-//  lazy val mergeStrat =
-//    assembly / assemblyMergeStrategy := {
-//      case _ => MergeStrategy.first
-//    }
-
 
 lazy val commonSettings = Seq(
   organization := "hypervolt",
@@ -44,6 +36,8 @@ lazy val root = (project in file("."))
 def utilProjectName(suffix: String): String = {
   s"hv-flink-util-$suffix"
 }
+
+import Dependencies._
 
 lazy val core = (project in file("flink-util-projects/hv-flink-util"))
   .settings(
