@@ -65,7 +65,8 @@ lazy val core = (project in file("flink-util-projects/hv-flink-util"))
     libraryDependencies ++= theInternet,
     commonSettings,
   )
-  .dependsOn(conf, testKit % "it,test")
+//  .dependsOn(conf, testKit % "it,test")
+  .dependsOn(testKit % "it,test")
 
 lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit"))
   .settings(
@@ -89,14 +90,14 @@ lazy val testKit = (project in file("flink-util-projects/hv-flink-util-testkit")
       TestKits.scalaTest,
     ),
   )
-  .dependsOn(conf)
+//  .dependsOn(conf)
 
-lazy val conf = (project in file("flink-util-projects/hv-flink-util-conf"))
-  .settings(
-    name := utilProjectName("conf"),
-    commonSettings,
-    libraryDependencies += Flink.clients
-  )
+//lazy val conf = (project in file("flink-util-projects/hv-flink-util-conf"))
+//  .settings(
+//    name := utilProjectName("conf"),
+//    commonSettings,
+//    libraryDependencies += Flink.clients
+//  )
 
 lazy val dynamoUtil = (project in file("hv-dynamo-util"))
   .settings(
